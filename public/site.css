@@ -42,13 +42,13 @@ button[disabled] { opacity: .7; cursor: progress !important; }
 /* flowing river panels */
 .river > *:not(.river-flow) { position: relative; z-index: 1; }
 .river-flow { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.river-flow svg { position: absolute; left: 0; top: 0; width: 200%; height: 100%; animation: rflow 14s linear infinite; }
-.river-flow svg.slow { animation-duration: 26s; }
-.river-flow svg.band { top: auto; bottom: 0; }
-.river-flow svg.b1 { height: 62%; animation-duration: 34s; }
-.river-flow svg.b2 { height: 44%; animation-duration: 26s; animation-direction: reverse; }
-.river-flow svg.b3 { height: 28%; animation-duration: 20s; }
-.river-flow svg.b4 { height: 15%; animation-duration: 15s; animation-direction: reverse; }
+.river-flow > svg { position: absolute; left: 0; top: 0; width: 200%; height: 100%; animation: rflow 14s linear infinite; }
+.river-flow > svg.slow { animation-duration: 26s; }
+.river-flow > svg.band { top: auto; bottom: 0; }
+.river-flow > svg.b1 { height: 62%; animation-duration: 34s; }
+.river-flow > svg.b2 { height: 44%; animation-duration: 26s; animation-direction: reverse; }
+.river-flow > svg.b3 { height: 28%; animation-duration: 20s; }
+.river-flow > svg.b4 { height: 15%; animation-duration: 15s; animation-direction: reverse; }
 @keyframes rflow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes rflowFishA { 0%,100% { transform: translateX(0) scaleX(1); } 49% { transform: translateX(-220px) scaleX(1); } 50% { transform: translateX(-220px) scaleX(-1); } 99% { transform: translateX(0) scaleX(-1); } }
 @keyframes rflowFishB { 0%,100% { transform: translateX(0) scaleX(-1); } 49% { transform: translateX(200px) scaleX(-1); } 50% { transform: translateX(200px) scaleX(1); } 99% { transform: translateX(0) scaleX(1); } }

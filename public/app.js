@@ -43,6 +43,9 @@
       var st = statusEl(form);
       st.textContent = ""; st.className = "form-status";
       var body = formData(form); body.type = type;
+      if (form.elements.phone && form.elements.email && !body.phone && !body.email) {
+        st.textContent = "Please add your WhatsApp number or email, either one is fine."; st.className = "form-status err"; return;
+      }
       setBusy(form, true);
       post("/api/lead", body).then(function (res) {
         setBusy(form, false);
@@ -76,7 +79,7 @@
   var STAGE_COLOR = { Reach: "#C2410C", Trust: "#8A5A00", Ask: "#1F4148" };
 
   function render(plan) {
-    document.getElementById("plan-badge").textContent = "Made for you just now";
+    document.getElementById("plan-badge").textContent = plan.name ? "Made for " + plan.name + " just now" : "Made for you just now";
     var diag = document.getElementById("plan-diagnosis");
     diag.textContent = "";
     (plan.diagnosis || []).forEach(function (d) { diag.appendChild(el("span", null, (d.good ? "✓ " : "✗ ") + d.text)); });
@@ -136,12 +139,14 @@
     var mic = document.getElementById("mic-btn");
     if (mic && mic.getAttribute("aria-pressed") === "true") mic.click();
     var st = statusEl(planForm);
-    var steps = ["Reading what you sell…", "Working out what your buyers need to believe…", "Writing your hooks…", "Drafting a sample post…", "Almost there…"];
-    var k = 0; st.textContent = "Reeling in your plan. This takes about 20 seconds…";
-    var timer = setInterval(function () { if (k < steps.length) st.textContent = steps[k++]; }, 4000);
+    var fd = formData(planForm);
+    if (!fd.phone && !fd.email) { st.textContent = "Please add your WhatsApp number or email, either one is fine."; st.className = "form-status err"; return; }
+    var steps = ["Reading your LinkedIn profile…", "Reading what you sell…", "Working out what your buyers need to believe…", "Writing your hooks…", "Drafting a sample post…", "Almost there…"];
+    var k = 0; st.textContent = "Reeling in your plan. This takes under a minute…";
+    var timer = setInterval(function () { if (k < steps.length) st.textContent = steps[k++]; }, 7000);
     st.className = "form-status";
     setBusy(planForm, true, "Building your plan…");
-    post("/api/plan", formData(planForm)).then(function (res) {
+    post("/api/plan", fd).then(function (res) {
       clearInterval(timer);
       setBusy(planForm, false);
       if (res.ok && res.data.plan) {
