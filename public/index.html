@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hookline · The right hook brings the right lead</title>
+<meta name="description" content="Write better LinkedIn posts with Hookline, get a free LinkedIn plan, have Janani Porkodi run your LinkedIn, or train your team.">
+<meta property="og:title" content="Hookline · The right hook brings the right lead">
+<meta property="og:description" content="Write better LinkedIn posts with Hookline, get a free LinkedIn plan, have Janani Porkodi run your LinkedIn, or train your team.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF6F1}
+a{color:#1A1714}a:hover{color:#2E4C86}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes waves{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes walk{from{transform:translateX(330px)}to{transform:translateX(0)}}
+@keyframes hide{from{opacity:1}to{opacity:0}}
+@keyframes show{from{opacity:0}to{opacity:1}}
+@keyframes step{from{transform:translateY(0)}to{transform:translateY(-2px)}}
+@keyframes legA{from{transform:rotate(18deg)}to{transform:rotate(-18deg)}}
+@keyframes legB{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
+@keyframes lineReel{0%,46%{height:252px}52%{height:262px}64%{height:172px}82%{height:172px}94%,100%{height:252px}}
+@keyframes reel{0%,46%{transform:translateY(0)}52%{transform:translateY(10px)}64%{transform:translateY(-80px)}82%{transform:translateY(-80px)}94%,100%{transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+@keyframes fish{0%{transform:translate(0,0) rotate(0);opacity:0}8%{opacity:1}46%{transform:translate(-182px,0) rotate(0);opacity:1}52%{transform:translate(-182px,10px) rotate(0);opacity:1}64%{transform:translate(-182px,-80px) rotate(90deg);opacity:1}82%{transform:translate(-182px,-80px) rotate(90deg);opacity:1}90%{transform:translate(-182px,-30px) rotate(90deg);opacity:0}100%{transform:translate(0,0) rotate(0);opacity:0}}
+@keyframes wiggle{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes toast{0%,60%{transform:translateY(-10px) scale(.96);opacity:0}66%,86%{transform:none;opacity:1}92%,100%{transform:translateY(-10px) scale(.96);opacity:0}}
+@keyframes ripple{0%,58%{transform:scale(.2);opacity:0}62%{opacity:.8}76%,100%{transform:scale(1.7);opacity:0}}
+@keyframes swimA{0%,100%{transform:translateX(0) scaleX(1)}49%{transform:translateX(-160px) scaleX(1)}50%{transform:translateX(-160px) scaleX(-1)}99%{transform:translateX(0) scaleX(-1)}}
+@keyframes swimB{0%,100%{transform:translateX(0) scaleX(-1)}49%{transform:translateX(140px) scaleX(-1)}50%{transform:translateX(140px) scaleX(1)}99%{transform:translateX(0) scaleX(1)}}
+@keyframes swimC{0%,100%{transform:translate(0,0) scaleX(1)}25%{transform:translate(-50px,-6px) scaleX(1)}49%{transform:translate(-100px,0) scaleX(1)}50%{transform:translate(-100px,0) scaleX(-1)}75%{transform:translate(-50px,6px) scaleX(-1)}99%{transform:translate(0,0) scaleX(-1)}}
+@keyframes bubble{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-60px);opacity:0}}
+@keyframes steam{0%{transform:translateY(0);opacity:0}30%{opacity:.7}100%{transform:translateY(-14px);opacity:0}}
+@keyframes screen{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes c1{0%,4%{opacity:0;transform:translateY(10px)}8%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes c2{0%,16%{opacity:0;transform:translateY(10px)}22%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes c3{0%,38%{opacity:0;transform:translateY(10px)}44%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes c4{0%,52%{opacity:0;transform:translateY(10px)}58%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes c5{0%,64%{opacity:0;transform:translateY(10px)}70%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@media (max-width: 1100px){.hl-scene{display:none}}
+@keyframes fwWalk{from{left:-80px}to{left:calc(100% + 80px)}}
+@keyframes fwBob{from{transform:translateY(0)}to{transform:translateY(-2px)}}
+@keyframes fwLegA{from{transform:rotate(16deg)}to{transform:rotate(-16deg)}}
+@keyframes fwLegB{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+@keyframes fwSway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes nib{0%,100%{transform:translateX(0) rotate(0)}50%{transform:translateX(-6px) rotate(-4deg)}}
+@keyframes flow{to{stroke-dashoffset:-360}}
+</style>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div style="background: #FBF6F1; color: #1A1714; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55; overflow: hidden; position: relative; isolation: isolate">
+
+<!-- ================= HERO ================= -->
+<section id="top" style="position: relative; height: 800px; overflow: hidden">
+
+<div style="position: absolute; left: 0; bottom: 0; width: 200%; height: 190px; animation: waves 16s linear infinite" aria-hidden="true">
+<svg width="100%" height="190" viewBox="0 0 2880 190" preserveAspectRatio="none" fill="none">
+<path d="M0 18 Q 60 2 120 18 T240 18 T360 18 T480 18 T600 18 T720 18 T840 18 T960 18 T1080 18 T1200 18 T1320 18 T1440 18 T1560 18 T1680 18 T1800 18 T1920 18 T2040 18 T2160 18 T2280 18 T2400 18 T2520 18 T2640 18 T2760 18 T2880 18 L2880 190 L0 190 Z" fill="#D3EAEE"></path>
+<path d="M0 18 Q 60 2 120 18 T240 18 T360 18 T480 18 T600 18 T720 18 T840 18 T960 18 T1080 18 T1200 18 T1320 18 T1440 18 T1560 18 T1680 18 T1800 18 T1920 18 T2040 18 T2160 18 T2280 18 T2400 18 T2520 18 T2640 18 T2760 18 T2880 18" stroke="#7FB5BF" stroke-width="2"></path>
+</svg>
+</div>
+
+<!-- school of cute fish across the water -->
+<div aria-hidden="true" class="school">
+<div style="position: absolute; left: 6%; top: 680px; animation: swimB 17s ease-in-out infinite"><svg width="46" height="34" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#4E9BA8"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#4E9BA8"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#6FB8C4"></ellipse><ellipse cx="28" cy="29" rx="13" ry="6" fill="#FFFFFF" fill-opacity=".25"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 17%; top: 735px; animation: swimC 13s ease-in-out infinite"><svg width="34" height="25" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E27C84"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E27C84"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F49AA0"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#FFFFFF" fill-opacity=".6"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 30%; top: 700px; animation: swimA 19s ease-in-out infinite"><svg width="52" height="38" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E0A32A"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E0A32A"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F5C04A"></ellipse><ellipse cx="28" cy="29" rx="13" ry="6" fill="#FFFFFF" fill-opacity=".3"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 31.5%; top: 690px; animation: bubble 3.5s ease-out infinite"><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" stroke="#7FB5BF" stroke-width="1.2" fill="none"></circle></svg></div>
+<div style="position: absolute; left: 43%; top: 748px; animation: swimB 15s ease-in-out infinite"><svg width="38" height="28" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#5C7FC0"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#5C7FC0"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#8CA8DC"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 50%; top: 668px; animation: swimC 11s ease-in-out infinite"><svg width="30" height="22" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#62B58F"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#62B58F"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#8ED1B0"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 51%; top: 660px; animation: bubble 4s ease-out 1.5s infinite"><svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" stroke="#7FB5BF" stroke-width="1.2" fill="none"></circle></svg></div>
+<div style="position: absolute; left: 12%; top: 650px; animation: bubble 4.5s ease-out .7s infinite"><svg width="9" height="9" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" stroke="#7FB5BF" stroke-width="1.2" fill="none"></circle></svg></div>
+</div>
+
+<header style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px">
+<svg width="46" height="46" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="11" fill="#2E4C86"></rect><path d="M20 7 V 22 C 20 31 30 31 30 23 L 26.5 26.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="20" cy="7" r="2" fill="#F5C04A"></circle></svg>
+<span style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 30px; letter-spacing: -0.01em">Hookline</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px">
+<a href="/hookline" style="text-decoration: none">Hookline</a>
+<a href="/free-plan" style="text-decoration: none">Free plan</a>
+<a href="/done-for-you" style="text-decoration: none">Done for you</a>
+<a href="/teams" style="text-decoration: none">For teams</a>
+<a href="/hookline#waitlist" style="text-decoration: none; background: #1A1714; color: #FBF6F1; padding: 11px 18px; border-radius: 999px; font-weight: 600">Join the waitlist</a>
+</nav>
+</header>
+
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 56px 24px 0">
+<div style="max-width: 540px">
+<p style="margin: 0 0 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #1A1714; background: #F5C04A; padding: 7px 12px; border-radius: 999px; animation: rise .6s ease both">Launching soon · first month free</p>
+<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 72px; line-height: 1.03; letter-spacing: -0.02em; animation: rise .7s ease .1s both">The right hook brings <span style="font-style: italic; color: #2E4C86">the right lead.</span></h1>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.55; color: #4A423A; max-width: 480px; animation: rise .7s ease .2s both">Hookline writes your LinkedIn post with you, on WhatsApp, every morning. Reply "post" and it's live.</p>
+<div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; animation: rise .7s ease .3s both">
+<a href="/hookline#waitlist" style="text-decoration: none; background: #2E4C86; color: #FFFFFF; padding: 15px 24px; border-radius: 999px; font-weight: 600; font-size: 16px">Join the Hookline waitlist</a>
+<a href="/free-plan" style="text-decoration: none; background: #FBF6F1; color: #1A1714; padding: 14px 23px; border-radius: 999px; font-weight: 500; font-size: 16px; border: 1px solid #1A1714">Get my free LinkedIn plan</a>
+</div>
+</div>
+</div>
+
+<!-- scene -->
+<div class="hl-scene" style="position: absolute; bottom: 0; right: max(0px, calc((100% - 1240px) / 2)); width: 720px; height: 610px" aria-hidden="true">
+
+<div style="position: absolute; left: 430px; top: 540px; animation: swimA 15s ease-in-out infinite"><svg width="42" height="31" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E0A32A"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E0A32A"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F5C04A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 560px; top: 575px; animation: swimC 12s ease-in-out infinite"><svg width="32" height="24" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E27C84"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E27C84"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F49AA0"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 30px; top: 520px; animation: swimB 18s ease-in-out infinite"><svg width="36" height="26" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#4E9BA8"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#4E9BA8"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#6FB8C4"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0" fill-opacity=".85"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+
+<!-- pier -->
+<svg width="760" height="610" viewBox="0 0 760 610" fill="none" style="position: absolute; left: 0; top: 0; overflow: visible">
+<g fill="#8A5E3A"><rect x="306" y="392" width="9" height="110"></rect><rect x="390" y="392" width="9" height="110"></rect><rect x="474" y="392" width="9" height="110"></rect><rect x="558" y="392" width="9" height="110"></rect><rect x="642" y="392" width="9" height="110"></rect><rect x="726" y="392" width="9" height="110"></rect></g>
+<rect x="298" y="378" width="480" height="15" rx="2" fill="#B9834F"></rect>
+<path d="M340 378 V393 M382 378 V393 M424 378 V393 M466 378 V393 M508 378 V393 M550 378 V393 M592 378 V393 M634 378 V393 M676 378 V393 M718 378 V393" stroke="#9A6A3F" stroke-width="1.2"></path>
+<g stroke="#8A5E3A" stroke-width="4" stroke-linecap="round"><path d="M560 378 V 340 M644 378 V 340 M728 378 V 340"></path><path d="M560 344 H 780"></path></g>
+<rect x="364" y="372" width="44" height="6" rx="2" fill="#9AA3AD"></rect>
+<path d="M370 372 L 366 346 L 404 346 L 400 372 Z" fill="#2B3240"></path>
+<rect x="371" y="350" width="28" height="3" rx="1.5" fill="#7FB5BF" style="animation: screen 3s ease-in-out infinite"></rect>
+<rect x="371" y="356" width="20" height="3" rx="1.5" fill="#F5C04A" style="animation: screen 3s ease-in-out .8s infinite"></rect>
+<rect x="371" y="362" width="24" height="3" rx="1.5" fill="#7FB5BF" style="animation: screen 3s ease-in-out 1.6s infinite"></rect>
+<rect x="420" y="360" width="13" height="18" rx="2" fill="#C9CED3"></rect>
+<rect x="417" y="372" width="19" height="6" rx="2" fill="#AEB4BA"></rect>
+<path d="M424 354 q 4 -6 0 -12" stroke="#B9B0A6" stroke-width="1.6" stroke-linecap="round" style="animation: steam 2.4s ease-out infinite"></path>
+<path d="M430 354 q 4 -6 0 -12" stroke="#B9B0A6" stroke-width="1.6" stroke-linecap="round" style="animation: steam 2.4s ease-out 1.1s infinite"></path>
+</svg>
+
+<!-- walking person -->
+<div style="position: absolute; left: 318px; top: 280px; animation: walk 3.6s linear both, hide .3s linear 3.6s forwards">
+<svg width="60" height="100" viewBox="0 0 60 100" fill="none" style="animation: step .26s ease-in-out 14 alternate; overflow: visible">
+<path d="M30 60 L 30 94" stroke="#2E3A5C" stroke-width="9" stroke-linecap="round" style="transform-box: view-box; transform-origin: 30px 60px; animation: legA .52s ease-in-out 7 alternate"></path>
+<path d="M30 60 L 30 94" stroke="#25304D" stroke-width="9" stroke-linecap="round" style="transform-box: view-box; transform-origin: 30px 60px; animation: legB .52s ease-in-out 7 alternate"></path>
+<path d="M20 30 C 20 25, 40 25, 40 30 L 39 64 L 21 64 Z" fill="#22304F"></path>
+<path d="M26 27 L 30 36 L 34 27 Z" fill="#FFFFFF"></path>
+<path d="M30 30 L 30 48" stroke="#F2733A" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M30 31 L 30 56" stroke="#1B2742" stroke-width="7" stroke-linecap="round" style="transform-box: view-box; transform-origin: 30px 31px; animation: legB .52s ease-in-out 7 alternate"></path>
+<path d="M19 13 C 18 0, 42 0, 41 13 L 42 32 C 38 35, 22 35, 18 32 Z" fill="#1A1714"></path>
+<rect x="27" y="19" width="6" height="7" rx="2" fill="#8D5B3E"></rect>
+<circle cx="30" cy="13" r="10" fill="#8D5B3E"></circle>
+<path d="M20 13 C 20 1, 40 1, 40 13 C 36 6, 26 6, 20 13 Z" fill="#1A1714"></path>
+</svg>
+</div>
+
+<!-- seated person and rod -->
+<svg width="760" height="610" viewBox="0 0 760 610" fill="none" style="position: absolute; left: 0; top: 0; animation: show .4s ease 3.7s both; overflow: visible">
+<path d="M306 352 Q 220 200 120 162" stroke="#3B342D" stroke-width="3.2" stroke-linecap="round"></path>
+<circle cx="312" cy="350" r="5" fill="#3B342D"></circle>
+<path d="M348 376 L 302 378" stroke="#2E3A5C" stroke-width="17" stroke-linecap="round"></path>
+<path d="M300 380 L 297 412" stroke="#2E3A5C" stroke-width="13" stroke-linecap="round"></path>
+<ellipse cx="292" cy="416" rx="10" ry="5.5" fill="#1A1714"></ellipse>
+<path d="M326 380 C 322 360, 324 334, 338 324 C 350 320, 357 332, 356 350 L 356 380 Z" fill="#22304F"></path>
+<path d="M334 324 L 340 336 L 346 323 Z" fill="#FFFFFF"></path>
+<path d="M340 328 L 339 350" stroke="#F2733A" stroke-width="2.6" stroke-linecap="round"></path>
+<path d="M342 332 L 322 348 L 310 352" stroke="#1B2742" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="307" cy="352" r="5.5" fill="#8D5B3E"></circle>
+<path d="M325 296 C 323 280, 352 279, 351 296 L 357 324 C 353 330, 343 328, 341 320 L 339 306 Z" fill="#1A1714"></path>
+<rect x="335" y="309" width="8" height="10" rx="3" fill="#8D5B3E"></rect>
+<circle cx="337" cy="298" r="13" fill="#8D5B3E"></circle>
+<path d="M324 297 C 323 281, 350 279, 351 296 C 345 288, 331 287, 324 297 Z" fill="#1A1714"></path>
+<circle cx="329" cy="299" r="1.6" fill="#1A1714"></circle>
+</svg>
+
+<div style="position: absolute; left: 119px; top: 162px; width: 1.4px; height: 252px; background: #3B342D; animation: show .4s ease 3.7s both, lineReel 9s ease-in-out 4.2s infinite"></div>
+
+<div style="position: absolute; left: 112px; top: 410px; width: 16px; height: 70px; animation: show .4s ease 3.7s both, reel 9s ease-in-out 4.2s infinite">
+<div style="animation: float 2.6s ease-in-out infinite">
+<svg width="16" height="70" viewBox="0 0 16 70" fill="none" style="display: block">
+<path d="M8 16 L 8 58" stroke="#3B342D" stroke-width="1.2" stroke-opacity=".7"></path>
+<path d="M8 58 L 8 63 C 8 70 14 70 14 64 L 12 66" stroke="#3B342D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="8" cy="8" r="7" fill="#FFFFFF" stroke="#3B342D" stroke-width="1"></circle>
+<path d="M1 8 A 7 7 0 0 1 15 8 Z" fill="#E5482B"></path>
+</svg>
+</div>
+</div>
+
+<div style="position: absolute; left: 60px; top: 404px; width: 120px; height: 28px; border-radius: 50%; border: 2px solid #7FB5BF; animation: ripple 9s ease-out 4.2s infinite; opacity: 0"></div>
+
+<!-- the orange fish that bites -->
+<div style="position: absolute; left: 302px; top: 452px; transform-origin: 6px 26px; animation: fish 9s ease-in-out 4.2s infinite both">
+<svg width="60" height="44" viewBox="0 0 60 44" fill="none" style="display: block; transform-origin: 50px 22px; animation: wiggle .5s ease-in-out infinite"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E25A22"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E25A22"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F2733A"></ellipse><ellipse cx="28" cy="29" rx="13" ry="6" fill="#FFFFFF" fill-opacity=".25"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg>
+</div>
+
+<div style="position: absolute; left: 170px; top: 30px; width: 280px; animation: toast 9s ease-in-out 4.2s infinite both; background: #1A1714; color: #FBF6F1; border-radius: 16px; padding: 12px 14px; display: flex; gap: 12px; align-items: center; box-shadow: 0 18px 30px -16px rgba(0,0,0,.45)">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #F2733A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 14px">New message on LinkedIn</span><span style="font-size: 13px; opacity: .85">"Loved your post. Can we talk?"</span></span>
+</div>
+</div>
+</section>
+
+<!-- ================= THREE WAYS ================= -->
+<section id="how" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 40px">
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #C2410C">Three ways to fish<span aria-hidden="true" style="display: inline-block; vertical-align: middle; margin-left: 10px; animation: nib 3s ease-in-out infinite"><svg width="26" height="19" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E25A22"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F2733A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span></p>
+<h2 style="margin: 12px 0 40px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 48px; line-height: 1.1; letter-spacing: -0.01em; max-width: 760px">Write it yourself, have it done for you, or train your team.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<a href="/hookline" style="text-decoration: none; color: #1A1714; background: #FFFFFF; border-radius: 24px; padding: 30px; border: 2px solid #F2733A; display: flex; flex-direction: column; gap: 12px; position: relative">
+<span style="position: absolute; top: -13px; left: 24px; background: #F2733A; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px">Most popular</span>
+<span aria-hidden="true" style="position: absolute; top: -16px; right: 22px; animation: nib 2.8s ease-in-out infinite"><svg width="34" height="25" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E0A32A"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E0A32A"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F5C04A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span>
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #FDE3D4; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 V 13 C 12 19 19 19 19 14 L 16.5 16.5"></path></svg></span>
+<span style="font-family: Fraunces, Georgia, serif; font-size: 28px">Hookline</span>
+<span style="color: #4A423A">Write your own posts with a daily draft on WhatsApp. You stay in your voice; it does the heavy lifting.</span>
+<span style="margin-top: auto; font-weight: 700; color: #C2410C">Join the waitlist →</span>
+</a>
+<a href="/done-for-you" style="text-decoration: none; color: #1A1714; background: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #FCEFC7; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+<span style="font-family: Fraunces, Georgia, serif; font-size: 28px">Done for you</span>
+<span style="color: #4A423A">I personally manage your profile and write every post, so LinkedIn works while you run the company.</span>
+<span style="margin-top: auto; font-weight: 700; color: #8A5A00">Meet Janani →</span>
+</a>
+<a href="/teams" style="text-decoration: none; color: #1A1714; background: #FFFFFF; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #D3EAEE; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F4148" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+<span style="font-family: Fraunces, Georgia, serif; font-size: 28px">For your team</span>
+<span style="color: #4A423A">Talks, workshops and programs that get your leaders and employees posting well.</span>
+<span style="margin-top: auto; font-weight: 700; color: #1F4148">See sessions →</span>
+</a>
+</div>
+</section>
+
+<!-- ================= HOOKLINE + WHATSAPP DEMO ================= -->
+<section id="hookline" style="max-width: 1200px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 1 1 380px; min-width: 0">
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #C2410C">01 · Hookline<span aria-hidden="true" style="display: inline-block; vertical-align: middle; margin-left: 10px; animation: nib 3.4s ease-in-out infinite"><svg width="26" height="19" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#4E9BA8"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#6FB8C4"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span></p>
+<h2 style="margin: 12px 0 28px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 48px; line-height: 1.1">Your daily catch, on WhatsApp.</h2>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; gap: 16px; align-items: flex-start"><span style="width: 44px; height: 44px; border-radius: 13px; background: #FDE3D4; color: #C2410C; display: flex; align-items: center; justify-content: center; font-family: Fraunces, Georgia, serif; font-size: 20px; flex-shrink: 0">1</span><div><p style="margin: 0; font-weight: 700; font-size: 18px">Tell it about you once</p><p style="margin: 3px 0 0; color: #4A423A">Your business, your buyers, how you talk.</p></div></div>
+<div style="display: flex; gap: 16px; align-items: flex-start"><span style="width: 44px; height: 44px; border-radius: 13px; background: #FCEFC7; color: #8A5A00; display: flex; align-items: center; justify-content: center; font-family: Fraunces, Georgia, serif; font-size: 20px; flex-shrink: 0">2</span><div><p style="margin: 0; font-weight: 700; font-size: 18px">Get a draft at your posting time</p><p style="margin: 3px 0 0; color: #4A423A">A ready post with a strong hook, plus one tip.</p></div></div>
+<div style="display: flex; gap: 16px; align-items: flex-start"><span style="width: 44px; height: 44px; border-radius: 13px; background: #D3EAEE; color: #1F4148; display: flex; align-items: center; justify-content: center; font-family: Fraunces, Georgia, serif; font-size: 20px; flex-shrink: 0">3</span><div><p style="margin: 0; font-weight: 700; font-size: 18px">Reply "post"</p><p style="margin: 3px 0 0; color: #4A423A">It goes live on your LinkedIn, or reply with changes first.</p></div></div>
+</div>
+<div style="margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
+<a href="/hookline" style="text-decoration: none; background: #2E4C86; color: #FFFFFF; padding: 14px 22px; border-radius: 999px; font-weight: 600">See how Hookline works</a>
+<span style="font-size: 14px; color: #5C534A">Launching soon. The waitlist gets the first month free.</span>
+</div>
+</div>
+
+<!-- phone -->
+<div style="flex: 0 0 340px; max-width: 100%; display: flex; justify-content: center">
+<div style="width: 330px; max-width: 100%; background: #FFFFFF; border-radius: 34px; padding: 12px; box-shadow: 0 30px 60px -30px rgba(60,40,20,.35), 0 0 0 1px #EADFD3">
+<div style="background: #075E54; color: #FFFFFF; border-radius: 24px 24px 0 0; padding: 14px 16px; display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 50%; background: #2E4C86; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 7 V 22 C 20 31 30 31 30 23 L 26.5 26.5" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 15px">Hookline</span><span style="font-size: 12px; opacity: .85">online</span></div>
+</div>
+<div style="background: #ECE5DD; border-radius: 0 0 24px 24px; padding: 16px 12px 18px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.45; min-height: 380px">
+<div style="align-self: flex-start; background: #FFFFFF; padding: 10px 12px; border-radius: 4px 12px 12px 12px; max-width: 86%; animation: c1 12s ease infinite">Good morning ☀ Here's your daily catch.</div>
+<div style="align-self: flex-start; background: #FFFFFF; padding: 12px; border-radius: 4px 12px 12px 12px; max-width: 92%; animation: c2 12s ease infinite">
+<span style="display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #075E54; margin-bottom: 6px">Your post for 9:00 AM</span>
+<span style="display: block; font-weight: 600">We said no to a ₹4L order last week.</span>
+<span style="display: block; margin-top: 6px; color: #5C534A">It was the best call we made all quarter. Here's the 3-question check we use before saying yes…</span>
+</div>
+<div style="align-self: flex-end; background: #DCF8C6; padding: 9px 14px; border-radius: 12px 4px 12px 12px; animation: c3 12s ease infinite">make it shorter</div>
+<div style="align-self: flex-start; background: #FFFFFF; padding: 10px 12px; border-radius: 4px 12px 12px 12px; max-width: 86%; animation: c4 12s ease infinite">Done ✂ Trimmed to 6 lines. Ready?</div>
+<div style="align-self: flex-end; background: #DCF8C6; padding: 9px 14px; border-radius: 12px 4px 12px 12px; font-weight: 700; animation: c5 12s ease infinite">post</div>
+<div style="align-self: flex-start; background: #FFFFFF; padding: 10px 12px; border-radius: 4px 12px 12px 12px; display: flex; align-items: center; gap: 8px; animation: c5 12s ease infinite; animation-delay: .9s">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D9E5A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><span>Posted to LinkedIn</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- QR -->
+<div style="flex: 0 1 280px; min-width: 240px; display: flex; justify-content: center">
+<div style="background: #FFFFFF; border-radius: 28px; padding: 28px; text-align: center; width: 280px; max-width: 100%; box-shadow: 0 30px 60px -36px rgba(60,40,20,.45); position: relative">
+<span style="position: absolute; top: -14px; right: 22px; background: #F2733A; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px">1 month free</span>
+<div aria-hidden="true" style="width: 120px; height: 120px; margin: 0 auto; border-radius: 30px; background: #FDE3D4; display: flex; align-items: center; justify-content: center"><svg width="56" height="56" viewBox="0 0 40 40" fill="none"><path d="M20 5 V 22 C 20 32 31 32 31 23 L 27 27" stroke="#C2410C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="20" cy="5" r="2.4" fill="#F5C04A"></circle></svg></div>
+<p style="margin: 18px 0 14px; font-family: Fraunces, Georgia, serif; font-size: 24px">Get early access</p>
+<span aria-hidden="true" style="position: absolute; bottom: -14px; left: 22px; animation: nib 3s ease-in-out infinite"><svg width="32" height="24" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#62B58F"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#62B58F"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#8ED1B0"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span>
+<a href="/hookline#waitlist" style="display: block; text-decoration: none; background: #F2733A; color: #1A1714; padding: 13px 20px; border-radius: 999px; font-weight: 700">Join the waitlist</a>
+</div>
+</div>
+</section>
+
+<!-- ================= FREE PLAN TEASER ================= -->
+<section id="plan" style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 72px">
+<div style="background: #1A1714; color: #FBF6F1; border-radius: 32px; padding: 56px 48px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 380px; min-width: 0">
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #F5C04A">Not ready yet? Start here</p>
+<h2 style="margin: 12px 0 14px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.1">Get a free LinkedIn plan in 60 seconds.</h2>
+<p style="margin: 0 0 28px; color: #D8CEC3">What to fix on your profile, your content pillars, and your first week of hooks. Built on the same system I use for paying clients.</p>
+<a href="/free-plan" style="display: inline-block; text-decoration: none; font-weight: 700; background: #F2733A; color: #1A1714; padding: 16px 24px; border-radius: 999px">Build my free plan</a>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="background: #26211D; border-radius: 18px; padding: 20px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; color: #F5C04A">Profile fix</p><p style="margin: 6px 0 0; font-size: 14px; color: #D8CEC3">A sharper headline and what to change first.</p></div>
+<div style="background: #26211D; border-radius: 18px; padding: 20px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; color: #F49AA0">Your pillars</p><p style="margin: 6px 0 0; font-size: 14px; color: #D8CEC3">4 themes built from what your buyers must believe.</p></div>
+<div style="background: #26211D; border-radius: 18px; padding: 20px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; color: #8ED1B0">Week 1 hooks</p><p style="margin: 6px 0 0; font-size: 14px; color: #D8CEC3">Three first lines, ready to post.</p></div>
+<div style="background: #26211D; border-radius: 18px; padding: 20px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; color: #8CA8DC">One sample post</p><p style="margin: 6px 0 0; font-size: 14px; color: #D8CEC3">Written for your business, in plain words.</p></div>
+</div>
+</div>
+</section>
+
+<!-- wave divider -->
+<svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" fill="none" aria-hidden="true" style="display: block"><path d="M0 20 Q 60 4 120 20 T240 20 T360 20 T480 20 T600 20 T720 20 T840 20 T960 20 T1080 20 T1200 20 T1320 20 T1440 20" stroke="#7FB5BF" stroke-width="2"></path></svg>
+
+<!-- ================= DONE FOR YOU TEASER ================= -->
+<section id="done-for-you" style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 48px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 0 1 340px; min-width: 260px; position: relative">
+<div role="img" aria-label="Photo of Janani placeholder" style="height: 400px; border-radius: 28px; background: #E9DDD0; display: flex; align-items: center; justify-content: center; color: #5C534A; font-weight: 500">[Your photo]</div>
+<span style="position: absolute; bottom: -16px; left: 24px; background: #F5C04A; color: #1A1714; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px">Janani Porkodi · Chennai</span>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #8A5A00">02 · Done for you<span aria-hidden="true" style="display: inline-block; vertical-align: middle; margin-left: 10px; animation: nib 3.2s ease-in-out infinite"><svg width="26" height="19" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E0A32A"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F5C04A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span></p>
+<h2 style="margin: 12px 0 16px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.12">Rather not write at all? I'll manage your LinkedIn myself.</h2>
+<p style="margin: 0; color: #4A423A; font-size: 17px">I built my corporate gifting company on LinkedIn after 12 years in corporate, including PayPal. Now I run founders' profiles the way I run mine.</p>
+<div style="margin: 26px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px">
+<div style="background: #FFFFFF; border-radius: 18px; padding: 18px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 34px; color: #2E4C86">30k</p><p style="margin: 2px 0 0; font-size: 14px; color: #4A423A">LinkedIn followers</p></div>
+<div style="background: #FFFFFF; border-radius: 18px; padding: 18px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 34px; color: #C2410C">80%</p><p style="margin: 2px 0 0; font-size: 14px; color: #4A423A">of my company's leads come from it</p></div>
+<div style="background: #FFFFFF; border-radius: 18px; padding: 18px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 34px; color: #1F4148">12+</p><p style="margin: 2px 0 0; font-size: 14px; color: #4A423A">years in corporate</p></div>
+</div>
+<a href="/done-for-you" style="display: inline-block; text-decoration: none; background: #1A1714; color: #FBF6F1; padding: 14px 22px; border-radius: 999px; font-weight: 600">Meet Janani</a>
+</div>
+</section>
+
+<!-- ================= CORPORATE TEASER ================= -->
+<section id="corporate" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 32px">
+<div>
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #1F4148">03 · For your team<span aria-hidden="true" style="display: inline-block; vertical-align: middle; margin-left: 10px; animation: nib 3.6s ease-in-out infinite"><svg width="26" height="19" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E27C84"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F49AA0"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span></p>
+<h2 style="margin: 12px 0 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 48px; line-height: 1.1; max-width: 700px">Teach your whole team to fish.</h2>
+</div>
+<a href="/teams" style="text-decoration: none; font-weight: 700; color: #1F4148">See all sessions →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
+<div style="background: #FDE3D4; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><p style="margin: 0; font-weight: 700; font-size: 18px">Talk</p><p style="margin: 0; color: #4A423A; font-size: 15px; flex-grow: 1">60 minutes on why LinkedIn matters for your people and your brand.</p><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">From $1,000</p></div>
+<div style="background: #FCEFC7; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><p style="margin: 0; font-weight: 700; font-size: 18px">Hands-on workshop</p><p style="margin: 0; color: #4A423A; font-size: 15px; flex-grow: 1">Teams leave with a fixed profile and their first post written.</p><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">From $1,500</p></div>
+<div style="background: #D3EAEE; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><p style="margin: 0; font-weight: 700; font-size: 18px">Leadership visibility</p><p style="margin: 0; color: #4A423A; font-size: 15px; flex-grow: 1">A 4-week program to make your leaders known in their industry.</p><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">[Price]</p></div>
+<div style="background: #DCE4FB; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><p style="margin: 0; font-weight: 700; font-size: 18px">Employee advocacy</p><p style="margin: 0; color: #4A423A; font-size: 15px; flex-grow: 1">3 months of your employees posting about the company, with guidance.</p><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">[Price]</p></div>
+</div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section id="newsletter" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 80px">
+<div style="background: #FCEFC7; border-radius: 32px; padding: 52px 48px; display: flex; flex-wrap: wrap; gap: 44px; align-items: center; position: relative">
+<span aria-hidden="true" style="position: absolute; top: -18px; left: 48px; animation: nib 3s ease-in-out infinite"><svg width="40" height="29" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E25A22"></path><path d="M22 8 Q 30 0 36 8 Z" fill="#E25A22"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F2733A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><circle cx="20" cy="28" r="3" fill="#F49AA0"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></span>
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #8A5A00">The Daily Catch · free newsletter</p>
+<h2 style="margin: 12px 0 14px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.1">Still an inbox person? Get LinkedIn in 3 minutes a day.</h2>
+<p style="margin: 0 0 24px; color: #4A423A; font-size: 17px">Not ready for a WhatsApp bot? One short email every morning with everything you need to post better today.</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 26px; font-size: 15px">
+<span style="background: #FFFFFF; border-radius: 14px; padding: 12px 14px; border-left: 0"><strong style="color: #C2410C">One hook</strong> to steal today</span>
+<span style="background: #FFFFFF; border-radius: 14px; padding: 12px 14px"><strong style="color: #8A5A00">Top posts</strong> people are talking about</span>
+<span style="background: #FFFFFF; border-radius: 14px; padding: 12px 14px"><strong style="color: #1F4148">Who to follow</strong> this week</span>
+<span style="background: #FFFFFF; border-radius: 14px; padding: 12px 14px"><strong style="color: #2E4C86">One tidbit</strong> on what's working now</span>
+</div>
+<form data-lead="newsletter" style="display: flex; flex-wrap: wrap; gap: 10px; position: relative"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0">
+<label style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Your email<input type="email" name="email" required placeholder="you@company.com" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 999px; border: 1px solid #E0C98A; background: #FFFFFF"></label>
+<button type="submit" style="align-self: flex-end; font: inherit; font-weight: 700; background: #1A1714; color: #FBF6F1; border: 0; padding: 15px 24px; border-radius: 999px; cursor: pointer">Subscribe free</button>
+</form>
+<p style="margin: 10px 0 0; font-size: 13px; color: #6B4600">Every weekday morning. Unsubscribe anytime.</p>
+</div>
+<div style="flex: 0 1 380px; min-width: 280px">
+<div style="background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 50px -36px rgba(60,40,20,.5); overflow: hidden">
+<div style="padding: 14px 18px; border-bottom: 1px solid #EADFD3; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #5C534A"><span style="font-weight: 700; color: #1A1714">The Daily Catch</span><span>Today, 7:30 AM</span></div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 14px; font-size: 14px">
+<div><p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C2410C">Hook of the day</p><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 18px; line-height: 1.3">"We said no to our biggest client. Revenue went up."</p></div>
+<div style="border-top: 1px dashed #EADFD3; padding-top: 12px"><p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8A5A00">Top posts</p><p style="margin: 0; color: #4A423A">[3 posts everyone's talking about, and why they worked]</p></div>
+<div style="border-top: 1px dashed #EADFD3; padding-top: 12px"><p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #1F4148">Who to follow</p><p style="margin: 0; color: #4A423A">[2 people worth learning from this week]</p></div>
+<div style="border-top: 1px dashed #EADFD3; padding-top: 12px"><p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2E4C86">Tidbit</p><p style="margin: 0; color: #4A423A">[One quick tip on what's working on LinkedIn right now]</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section id="book" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 64px">
+<div style="background: #2E4C86; color: #FFFFFF; border-radius: 32px; padding: 64px 40px 100px; text-align: center; position: relative; overflow: hidden">
+<h2 style="margin: 0 auto 14px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 52px; line-height: 1.08; max-width: 760px">Ready to cast a better line?</h2>
+<p style="margin: 0 auto 30px; font-size: 18px; opacity: .92; max-width: 560px">Start Hookline free for a month, have me run it for you, or bring a session to your team.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; position: relative; z-index: 1">
+<a href="/hookline#waitlist" style="text-decoration: none; background: #F5C04A; color: #1A1714; padding: 15px 24px; border-radius: 999px; font-weight: 700">Join the Hookline waitlist</a>
+<a href="/done-for-you" style="text-decoration: none; color: #FFFFFF; padding: 14px 23px; border-radius: 999px; font-weight: 600; border: 1px solid #FFFFFF">Book a call</a>
+</div>
+<div style="position: absolute; left: 0; bottom: 0; width: 200%; height: 60px; animation: waves 12s linear infinite" aria-hidden="true">
+<svg width="100%" height="60" viewBox="0 0 2880 60" preserveAspectRatio="none" fill="none"><path d="M0 18 Q 60 2 120 18 T240 18 T360 18 T480 18 T600 18 T720 18 T840 18 T960 18 T1080 18 T1200 18 T1320 18 T1440 18 T1560 18 T1680 18 T1800 18 T1920 18 T2040 18 T2160 18 T2280 18 T2400 18 T2520 18 T2640 18 T2760 18 T2880 18 L2880 60 L0 60 Z" fill="#FFFFFF" fill-opacity=".14"></path></svg>
+</div>
+<div style="position: absolute; left: 20%; bottom: 14px; animation: swimA 14s ease-in-out infinite" aria-hidden="true"><svg width="34" height="25" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E0A32A"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F5C04A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="position: absolute; left: 72%; bottom: 20px; animation: swimB 16s ease-in-out infinite" aria-hidden="true"><svg width="30" height="22" viewBox="0 0 60 44" fill="none"><path d="M44 22 L 58 9 Q 53 22 58 35 Z" fill="#E25A22"></path><ellipse cx="26" cy="22" rx="21" ry="16" fill="#F2733A"></ellipse><circle cx="15" cy="18" r="6.5" fill="#FFFFFF"></circle><circle cx="14" cy="18.5" r="3.6" fill="#1A1714"></circle><circle cx="12.8" cy="17" r="1.3" fill="#FFFFFF"></circle><path d="M7 26 q 3 2.5 6 0.5" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+</div>
+</section>
+
+<div aria-hidden="true" style="position: relative; max-width: 1200px; margin: 0 auto; height: 112px; overflow: hidden">
+<div style="position: absolute; left: 0; right: 0; bottom: 12px; height: 2px; background: #E2D3C2; border-radius: 2px"></div>
+<div style="position: absolute; bottom: 13px; left: -80px; animation: fwWalk 28s linear infinite">
+<svg width="60" height="90" viewBox="0 0 60 90" fill="none" style="display: block; overflow: visible; animation: fwBob .3s ease-in-out infinite alternate">
+<path d="M24 52 L 24 86" stroke="#2E3A5C" stroke-width="8" stroke-linecap="round" style="transform-box: view-box; transform-origin: 24px 52px; animation: fwLegA .6s ease-in-out infinite alternate"></path>
+<path d="M24 52 L 24 86" stroke="#25304D" stroke-width="8" stroke-linecap="round" style="transform-box: view-box; transform-origin: 24px 52px; animation: fwLegB .6s ease-in-out infinite alternate"></path>
+<path d="M24 26 L 24 48" stroke="#1B2742" stroke-width="6" stroke-linecap="round" style="transform-box: view-box; transform-origin: 24px 26px; animation: fwLegA .6s ease-in-out infinite alternate"></path>
+<path d="M15 24 C 15 19, 33 19, 33 24 L 32 55 L 16 55 Z" fill="#22304F"></path>
+<path d="M20 21 L 24 29 L 28 21 Z" fill="#FFFFFF"></path>
+<path d="M24 24 L 24 40" stroke="#F2733A" stroke-width="2.2" stroke-linecap="round"></path>
+<path d="M27 27 L 38 38" stroke="#22304F" stroke-width="6" stroke-linecap="round"></path>
+<g style="transform-box: view-box; transform-origin: 40px 40px; animation: fwSway 1.2s ease-in-out infinite">
+<path d="M40 42 L 40 51 M40 51 L 34 55 M40 51 L 40 57 M40 51 L 46 55" stroke="#3B342D" stroke-width="1.2"></path>
+<ellipse cx="34" cy="62" rx="4.5" ry="7" fill="#F2733A"></ellipse><path d="M34 68 L 30 75 L 38 75 Z" fill="#E25A22"></path><circle cx="34" cy="58" r="1.8" fill="#FFFFFF"></circle><circle cx="34" cy="58.2" r="1" fill="#1A1714"></circle>
+<ellipse cx="40" cy="65" rx="4.5" ry="7.5" fill="#F5C04A"></ellipse><path d="M40 72 L 36 79 L 44 79 Z" fill="#E0A32A"></path><circle cx="40" cy="61" r="1.8" fill="#FFFFFF"></circle><circle cx="40" cy="61.2" r="1" fill="#1A1714"></circle>
+<ellipse cx="46" cy="62" rx="4.5" ry="7" fill="#6FB8C4"></ellipse><path d="M46 68 L 42 75 L 50 75 Z" fill="#4E9BA8"></path><circle cx="46" cy="58" r="1.8" fill="#FFFFFF"></circle><circle cx="46" cy="58.2" r="1" fill="#1A1714"></circle>
+</g>
+<circle cx="39.5" cy="39.5" r="3.5" fill="#8D5B3E"></circle>
+<path d="M15 9 C 15 -1, 33 -1, 33 9 L 31 12 C 26 11, 21 14, 20 21 L 17 30 C 13 28, 12 20, 15 9 Z" fill="#1A1714"></path>
+<rect x="21" y="13" width="6" height="7" rx="2" fill="#8D5B3E"></rect>
+<circle cx="24" cy="10" r="9" fill="#8D5B3E"></circle>
+<path d="M15 9 C 15 -1, 33 -1, 33 9 C 29 5, 20 4, 15 9 Z" fill="#1A1714"></path>
+<circle cx="28" cy="10" r="1.3" fill="#1A1714"></circle>
+</svg>
+</div>
+</div>
+<footer style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #5C534A; border-top: 1px solid #EADFD3">
+<span>© 2026 Hookline by Janani Porkodi · Chennai</span>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<a href="/hookline" style="color: #5C534A">Hookline</a>
+<a href="/free-plan" style="color: #5C534A">Free plan</a>
+<a href="/done-for-you" style="color: #5C534A">Done for you</a>
+<a href="/teams" style="color: #5C534A">For teams</a>
+<a href="https://www.linkedin.com/in/jananiporkodi" style="color: #5C534A">LinkedIn</a>
+</div>
+</footer>
+
+</div>
+<script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+html { scroll-behavior: smooth; }
+/* clip instead of hidden so wide wave strips can never scroll the page sideways */
+[style*="overflow: hidden"] { overflow: clip !important; }
+* { box-sizing: border-box; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #F2733A; outline-offset: 2px;
+}
+button[disabled] { opacity: .7; cursor: progress !important; }
+.form-status { margin: 4px 0 0; font-size: 14px; font-weight: 600; flex-basis: 100%; }
+.form-status.ok { color: #1C7A4B; }
+.form-status.err { color: #B42318; }
+#plan-form .form-status.ok { color: #8ED1B0; }
+#plan-form .form-status.err { color: #F49AA0; }
+#plan-form .form-status { color: #D8CEC3; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+@media (max-width: 720px) {
+  h1 { font-size: 44px !important; }
+  h2 { font-size: 32px !important; }
+  section > div[style*="padding: 5"], section > div[style*="padding: 4"] { padding: 32px 22px !important; }
+  header nav { gap: 14px !important; font-size: 14px !important; }
+  #top { height: auto !important; min-height: 640px; padding-bottom: 220px; }
+  .school { position: absolute; left: 0; right: 0; bottom: 0; height: 170px; }
+  .school > div { top: auto !important; }
+  .school > div:nth-child(1) { bottom: 110px; } .school > div:nth-child(2) { bottom: 40px; }
+  .school > div:nth-child(3) { bottom: 80px; } .school > div:nth-child(4) { bottom: 120px; }
+  .school > div:nth-child(5) { bottom: 30px; } .school > div:nth-child(6) { bottom: 100px; }
+  .school > div:nth-child(7) { bottom: 130px; } .school > div:nth-child(8) { bottom: 140px; }
+}
