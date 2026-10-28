@@ -142,7 +142,7 @@ async function handlePlan(req, env) {
     headers: { "content-type": "application/json", "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01" },
     body: JSON.stringify({
       model: env.CLAUDE_MODEL || DEFAULT_MODEL,
-      max_tokens: 1800,
+      max_tokens: 4000,
       system: PLAN_SYSTEM,
       messages: [{ role: "user", content: planPrompt(input) }],
     }),
@@ -155,7 +155,10 @@ async function handlePlan(req, env) {
   const text = (data.content || []).filter((c) => c.type === "text").map((c) => c.text).join("");
   let plan = null;
   try { plan = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1)); } catch {}
-  if (!validPlan(plan)) return json({ error: "We couldn't build your plan just now. Please try again." }, 502);
+  if (!validPlan(plan)) {
+    console.log("plan parse failed", data.stop_reason, text.length, text.slice(0, 400));
+    return json({ error: "We couldn't build your plan just now. Please try again." }, 502);
+  }
 
   await env.DB.prepare(
     "INSERT INTO leads (type, name, email, phone, company, details, ip_hash) VALUES ('plan', '', '', ?, '', ?, ?)"
