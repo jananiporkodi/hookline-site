@@ -133,6 +133,8 @@
   })();
   planForm.addEventListener("submit", function (e) {
     e.preventDefault();
+    var mic = document.getElementById("mic-btn");
+    if (mic && mic.getAttribute("aria-pressed") === "true") mic.click();
     var st = statusEl(planForm);
     var steps = ["Reading what you sell…", "Working out what your buyers need to believe…", "Writing your hooks…", "Drafting a sample post…", "Almost there…"];
     var k = 0; st.textContent = "Reeling in your plan. This takes about 20 seconds…";
