@@ -57,3 +57,50 @@ button[disabled] { opacity: .7; cursor: progress !important; }
 .river .form-status.ok { color: #8ED1B0; } .river .form-status.err { color: #F7B4B4; }
 #plan-form .form-status.ok { color: #1C7A4B; } #plan-form .form-status.err { color: #B42318; }
 #plan-form { color: #1A1714; }
+
+/* ---------- mobile menu ---------- */
+.menu-btn { display: none; }
+@media (max-width: 760px) {
+  header { flex-wrap: nowrap !important; padding: 16px 18px !important; position: relative !important; z-index: 100 !important; }
+  header > a svg { width: 38px; height: 38px; }
+  header > a span { font-size: 25px !important; }
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 14px; border: 1px solid #E3D6C8; background: #FFFFFF; color: #1A1714; cursor: pointer; padding: 0; }
+  .menu-btn svg { width: 22px; height: 22px; }
+  header nav[aria-label="Main"] {
+    display: none !important; position: absolute; top: 74px; left: 12px; right: 12px; z-index: 50;
+    flex-direction: column !important; align-items: stretch !important; gap: 4px !important;
+    background: #FFFFFF; border-radius: 20px; padding: 10px; box-shadow: 0 24px 48px -20px rgba(40,30,20,.35); font-size: 17px !important;
+  }
+  header.menu-open nav[aria-label="Main"] { display: flex !important; }
+  header nav[aria-label="Main"] a { padding: 14px 16px; border-radius: 12px; }
+  header nav[aria-label="Main"] a:not(:last-child):active { background: #FBF6F1; }
+  header nav[aria-label="Main"] a:last-child { text-align: center; margin-top: 6px; padding: 15px 18px !important; }
+  /* tidy home on phones: the detail lives on each page */
+  .m-hide { display: none !important; }
+  #how { padding-top: 56px !important; }
+  #how a { padding: 22px !important; }
+  #how h2 { margin-bottom: 28px !important; }
+}
+@media (max-width: 760px) {
+  /* calmer rhythm between sections */
+  body > div > section:not(#top) { padding-top: 32px !important; padding-bottom: 32px !important; }
+  body > div > section[style*="padding-bottom: 120px"] { padding-top: 0 !important; padding-bottom: 110px !important; }
+  footer { padding-top: 20px !important; }
+  /* stats as a tidy row */
+  .m-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .m-stats > div { padding: 14px 12px !important; border-radius: 16px !important; }
+  .m-stats > div p:first-child { font-size: 28px !important; }
+  .m-stats > div p:last-child { font-size: 12.5px !important; line-height: 1.35; }
+  /* feature tiles two-up */
+  .m-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+  .m-tiles > div { padding: 16px !important; border-radius: 18px !important; }
+  .m-tiles > div p:nth-child(2) { font-size: 15px !important; line-height: 1.25; margin-top: 10px !important; }
+  .m-tiles > div p:nth-child(3) { font-size: 13px !important; line-height: 1.4; }
+}
+#plan-form input, #plan-form select, #plan-form textarea { min-width: 0; width: 100%; }
+.example-toggle { display: none; }
+@media (max-width: 760px) {
+  #plan-result.is-example:not(.show-example) > *:not(:first-child) { display: none !important; }
+  #plan-result.is-example .example-toggle { display: inline-block; font: inherit; font-weight: 700; font-size: 15px; background: none; border: 0; padding: 4px 0; color: #C2410C; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  #plan-result.is-example { padding-bottom: 32px !important; }
+}

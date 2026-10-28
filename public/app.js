@@ -1,4 +1,29 @@
 (function () {
+  // phone menu: one hamburger that opens the page links
+  var header = document.querySelector("header");
+  var nav = header && header.querySelector('nav[aria-label="Main"]');
+  if (!nav) return;
+  nav.id = nav.id || "main-nav";
+  var btn = document.createElement("button");
+  btn.type = "button"; btn.className = "menu-btn";
+  btn.setAttribute("aria-controls", nav.id); btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-label", "Open menu");
+  var OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  var CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  btn.innerHTML = OPEN;
+  header.appendChild(btn);
+  function set(open) {
+    header.classList.toggle("menu-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    btn.innerHTML = open ? CLOSE : OPEN;
+  }
+  btn.addEventListener("click", function (e) { e.stopPropagation(); set(!header.classList.contains("menu-open")); });
+  nav.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+  document.addEventListener("click", function (e) { if (!header.contains(e.target)) set(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+})();
+
+(function () {
   function formData(form) {
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
@@ -78,7 +103,14 @@
   var PILLAR_BG = ["#FDE3D4", "#FCEFC7", "#D3EAEE", "#DCE4FB", "#E3F5EC"];
   var STAGE_COLOR = { Reach: "#C2410C", Trust: "#8A5A00", Ask: "#1F4148" };
 
+  var exampleBtn = document.querySelector(".example-toggle");
+  if (exampleBtn) exampleBtn.addEventListener("click", function () {
+    var r = document.getElementById("plan-result"); var on = r.classList.toggle("show-example");
+    exampleBtn.textContent = on ? "Hide the example" : "See an example plan"; exampleBtn.setAttribute("aria-expanded", on ? "true" : "false");
+  });
+
   function render(plan) {
+    document.getElementById("plan-result").classList.remove("is-example");
     document.getElementById("plan-badge").textContent = plan.name ? "Made for " + plan.name + " just now" : "Made for you just now";
     var diag = document.getElementById("plan-diagnosis");
     diag.textContent = "";
