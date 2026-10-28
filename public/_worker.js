@@ -8,7 +8,7 @@
 
 const DEFAULT_MODEL = "claude-sonnet-5-5";
 const LEAD_TYPES = new Set(["waitlist", "newsletter", "booking", "corporate"]);
-const PER_IP_PLANS_PER_DAY = 3;
+const PER_IP_PLANS_PER_DAY = 5;
 
 let schemaReady = false;
 async function ensureSchema(db) {
@@ -98,9 +98,10 @@ function planPrompt(i) {
 <what_they_sell>${i.sell}</what_they_sell>
 <current_headline>${i.headline || "(not given)"}</current_headline>
 <unusual_fact>${i.unusual || "(not given)"}</unusual_fact>
-<goal_from_linkedin>${i.goal}</goal_from_linkedin>
+<what_they_want_from_linkedin>${i.expectations}</what_they_want_from_linkedin>
+<linkedin_profile_url>${i.linkedin || "(not given)"}</linkedin_profile_url>
 <posts_per_week>${i.cadence}</posts_per_week>
-If the headline is not given, write headline_before as "[Your current headline]". Write the plan now.`;
+You cannot open the profile URL; use only the details above. Treat what_they_want_from_linkedin as their goal: build the pillars and the Ask posts around it. If the headline is not given, write headline_before as "[Your current headline]". Write the plan now.`;
 }
 
 function validPlan(p) {
@@ -120,8 +121,11 @@ async function handlePlan(req, env) {
     goal: clip(body.goal, 60) || "Clients and leads",
     cadence: clip(body.cadence, 30) || "3 a week",
     phone: clip(body.phone, 40),
+    linkedin: clip(body.linkedin, 200),
+    expectations: clip(body.expectations, 1500),
   };
   if (input.sell.length < 4) return json({ error: "Tell us what you sell and to whom." }, 400);
+  if (input.expectations.length < 4) return json({ error: "Tell us what you want LinkedIn to bring you. You can type it or tap the mic." }, 400);
   if (!env.ANTHROPIC_API_KEY) return json({ error: "The plan generator is being switched on. Please try again soon." }, 503);
   if (!env.DB) return json({ error: "The plan generator isn't connected yet." }, 503);
 
@@ -129,14 +133,11 @@ async function handlePlan(req, env) {
   const day = new Date().toISOString().slice(0, 10);
   const ih = await ipHash(req);
   const cap = parseInt(env.PLAN_DAILY_CAP || "150", 10);
+  const owner = await isOwner(req, env);
   const mine = await env.DB.prepare("SELECT count FROM plan_usage WHERE day = ? AND ip_hash = ?").bind(day, ih).first();
-  if (mine && mine.count >= PER_IP_PLANS_PER_DAY) return json({ error: "You've made 3 plans today. Come back tomorrow for more." }, 429);
+  if (!owner && mine && mine.count >= PER_IP_PLANS_PER_DAY) return json({ error: "You've made " + PER_IP_PLANS_PER_DAY + " plans today. Come back tomorrow for more." }, 429);
   const total = await env.DB.prepare("SELECT COALESCE(SUM(count),0) AS n FROM plan_usage WHERE day = ?").bind(day).first();
   if (total && total.n >= cap) return json({ error: "Lots of founders are making plans today. Please try again tomorrow." }, 429);
-  await env.DB.prepare(
-    "INSERT INTO plan_usage (day, ip_hash, count) VALUES (?, ?, 1) ON CONFLICT(day, ip_hash) DO UPDATE SET count = count + 1"
-  ).bind(day, ih).run();
-
   const res = await fetch((env.ANTHROPIC_BASE_URL || "https://api.anthropic.com") + "/v1/messages", {
     method: "POST",
     headers: { "content-type": "application/json", "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01" },
@@ -160,10 +161,22 @@ async function handlePlan(req, env) {
     return json({ error: "We couldn't build your plan just now. Please try again." }, 502);
   }
 
-  await env.DB.prepare(
-    "INSERT INTO leads (type, name, email, phone, company, details, ip_hash) VALUES ('plan', '', '', ?, '', ?, ?)"
-  ).bind(input.phone, JSON.stringify({ input, plan }), ih).run();
+  await env.DB.batch([
+    env.DB.prepare("INSERT INTO plan_usage (day, ip_hash, count) VALUES (?, ?, 1) ON CONFLICT(day, ip_hash) DO UPDATE SET count = count + 1").bind(day, ih),
+    env.DB.prepare("INSERT INTO leads (type, name, email, phone, company, details, ip_hash) VALUES ('plan', '', '', ?, '', ?, ?)").bind(input.phone, JSON.stringify({ input, plan }), ih),
+  ]);
   return json({ ok: true, plan });
+}
+
+// ---------- owner (skips the per-visitor plan limit) ----------
+async function ownerToken(env) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("owner|" + env.ADMIN_KEY));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+async function isOwner(req, env) {
+  if (!env.ADMIN_KEY) return false;
+  const m = (req.headers.get("cookie") || "").match(/(?:^|;\s*)hl_owner=([a-f0-9]{64})/);
+  return !!m && m[1] === (await ownerToken(env));
 }
 
 // ---------- admin ----------
@@ -192,7 +205,7 @@ async function handleAdmin(req, env, url) {
     }).join("");
   const rows = results.map((r) => {
     let d = r.details || "";
-    if (r.type === "plan") { try { const p = JSON.parse(d); d = `Sells: ${p.input.sell} · Goal: ${p.input.goal}`; } catch {} }
+    if (r.type === "plan") { try { const p = JSON.parse(d); d = `Sells: ${p.input.sell} · Wants: ${p.input.expectations || p.input.goal} · LinkedIn: ${p.input.linkedin || "-"}`; } catch {} }
     else { try { d = Object.entries(JSON.parse(d)).map(([a, b]) => `${a}: ${b}`).join(" · "); } catch {} }
     return `<tr><td>${esc(r.created_at)}</td><td>${esc(r.type)}</td><td>${esc(r.name)}</td><td>${esc(r.email)}</td><td>${esc(r.phone)}</td><td>${esc(r.company)}</td><td>${esc(d)}</td></tr>`;
   }).join("");
@@ -200,7 +213,8 @@ async function handleAdmin(req, env, url) {
 <style>body{margin:0;font-family:Inter,system-ui,sans-serif;background:#FBF6F1;color:#1A1714;padding:24px}h1{font-family:Georgia,serif;font-weight:400}nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}nav a{padding:8px 14px;border-radius:999px;background:#fff;text-decoration:none;color:#1A1714;border:1px solid #EADFD3}nav a.on{background:#1A1714;color:#FBF6F1}.box{overflow-x:auto;background:#fff;border-radius:16px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #EADFD3;vertical-align:top}th{background:#F6EEE5}a.dl{color:#2E4C86;font-weight:600}</style></head>
 <body><h1>Hookline signups</h1><nav>${tabs}</nav><p><a class="dl" href="/admin.csv?key=${k}${type ? "&type=" + encodeURIComponent(type) : ""}">Download as CSV</a></p>
 <div class="box"><table><thead><tr><th>When (UTC)</th><th>Form</th><th>Name</th><th>Email</th><th>Phone</th><th>Company</th><th>Details</th></tr></thead><tbody>${rows || '<tr><td colspan="7">No signups yet.</td></tr>'}</tbody></table></div></body></html>`;
-  return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" } });
+  return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex",
+    "set-cookie": "hl_owner=" + (await ownerToken(env)) + "; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax" } });
 }
 
 export default {

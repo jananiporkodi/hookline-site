@@ -53,34 +53,44 @@ a{color:#1A1714}a:hover{color:#2E4C86}
 <div style="flex: 1 1 360px; min-width: 0">
 <p style="margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #F5C04A">Free LinkedIn plan</p>
 <h1 style="margin: 12px 0 16px; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.05">Find your hooks in 60 seconds.</h1>
-<p style="margin: 0; color: #CFE5E9; font-size: 17px">Answer five questions. You get a profile fix, your content pillars, two weeks of hooks and one sample post, built on the same system I use for paying clients.</p>
+<p style="margin: 0; color: #CFE5E9; font-size: 17px">Answer a few questions, or just talk. You get a profile fix, your content pillars, two weeks of hooks and one sample post, built on the same system I use for paying clients.</p>
 <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #CFE5E9">
 <span>✓ Free, no sign-up wall</span><span>✓ Ready on screen in under a minute</span><span>✓ Specific to your business, not generic tips</span>
 </div>
 
 </div>
 <form id="plan-form" style="position: relative; flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 24px 50px -36px rgba(30,60,70,.45); padding: 28px">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">1. What do you sell, and to whom?
 <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">1. Your LinkedIn profile
+<input type="text" name="linkedin" required maxlength="200" inputmode="url" placeholder="linkedin.com/in/your-name" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">2. What do you sell, and to whom?
 <input type="text" name="sell" required maxlength="300" placeholder="Natural skincare to women 25 to 40" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714">
 </label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">2. Your LinkedIn headline
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">
+<label for="plan-expectations">3. What do you want LinkedIn to bring you?</label>
+<div style="position: relative">
+<textarea id="plan-expectations" name="expectations" required rows="4" maxlength="1500" placeholder="Say it like you'd tell a friend: more clients, retail partners, investors, speaking invites, hiring… and why now." style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714; width: 100%; resize: vertical; padding-right: 64px"></textarea>
+<button type="button" id="mic-btn" aria-pressed="false" aria-label="Speak your answer instead of typing" title="Talk it out" style="position: absolute; right: 10px; bottom: 12px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #F2733A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+</button>
+</div>
+<span id="mic-hint" style="font-size: 13px; font-weight: 400; color: #6B635B">Tap the mic and talk it out. Tap again to stop.</span>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600"><span>4. Your LinkedIn headline <span style="font-weight: 400; color: #6B635B">(optional)</span></span>
 <input type="text" name="headline" maxlength="300" placeholder="Paste it here" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714">
 </label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">3. One thing about your business most people don't know
-<textarea name="unusual" rows="3" maxlength="600" placeholder="We were online-only for 3 years before our first store" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714; resize: vertical"></textarea>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600"><span>5. One thing about your business most people don't know <span style="font-weight: 400; color: #6B635B">(optional)</span></span>
+<textarea name="unusual" rows="2" maxlength="600" placeholder="We were online-only for 3 years before our first store" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714; resize: vertical"></textarea>
 </label>
 <div style="display: flex; flex-wrap: wrap; gap: 14px">
-<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">4. What do you want to catch?
-<select name="goal" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714"><option>Clients and leads</option><option>Investors</option><option>Retail partners</option><option>Hires</option><option>Press and speaking</option></select>
-</label>
-<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">5. Posts per week
+<label style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Posts per week
 <select name="cadence" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714"><option>3 a week</option><option>2 a week</option><option>4 a week</option><option>5 a week</option></select>
 </label>
-</div>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Your WhatsApp number
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600"><span>WhatsApp number <span style="font-weight: 400; color: #6B635B">(optional)</span></span>
 <input type="tel" name="phone" placeholder="+91" style="font: inherit; font-weight: 400; padding: 14px 16px; border-radius: 12px; border: 1px solid #D8CCBF; background: #FBF6F1; color: #1A1714">
 </label>
+</div>
 <button type="submit" style="margin-top: 6px; font: inherit; font-weight: 700; background: #F2733A; color: #1A1714; border: 0; padding: 16px 24px; border-radius: 999px; cursor: pointer">Build my plan</button>
 </form>
 </div>

@@ -106,13 +106,41 @@
     document.getElementById("plan-result").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+
+  // ---------- voice input for "what do you want from LinkedIn" ----------
+  (function () {
+    var btn = document.getElementById("mic-btn");
+    var box = document.getElementById("plan-expectations");
+    var hint = document.getElementById("mic-hint");
+    if (!btn || !box) return;
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { btn.style.display = "none"; if (hint) hint.textContent = "Tip: on your phone, tap the keyboard's mic to talk instead of typing."; return; }
+    var rec = null, on = false, base = "";
+    function stop() { on = false; btn.setAttribute("aria-pressed", "false"); btn.style.background = "#F2733A"; if (hint) hint.textContent = "Tap the mic and talk it out. Tap again to stop."; }
+    btn.addEventListener("click", function () {
+      if (on && rec) { rec.stop(); return; }
+      rec = new SR(); rec.lang = "en-IN"; rec.interimResults = true; rec.continuous = true;
+      base = box.value ? box.value.replace(/\s*$/, " ") : "";
+      rec.onresult = function (e) {
+        var finalText = "", interim = "";
+        for (var i = 0; i < e.results.length; i++) { var r = e.results[i]; if (r.isFinal) finalText += r[0].transcript; else interim += r[0].transcript; }
+        box.value = (base + finalText + interim).slice(0, 1500);
+      };
+      rec.onerror = function (e) { stop(); if (hint) hint.textContent = e.error === "not-allowed" ? "Allow microphone access in your browser to talk, or just type." : "Couldn't hear that. Try again or type it."; };
+      rec.onend = stop;
+      try { rec.start(); on = true; btn.setAttribute("aria-pressed", "true"); btn.style.background = "#B42318"; if (hint) hint.textContent = "Listening… tap the mic again when you're done."; } catch (err) { stop(); }
+    });
+  })();
   planForm.addEventListener("submit", function (e) {
     e.preventDefault();
     var st = statusEl(planForm);
-    st.textContent = "Reeling in your plan. This takes about 30 seconds…";
+    var steps = ["Reading what you sell…", "Working out what your buyers need to believe…", "Writing your hooks…", "Drafting a sample post…", "Almost there…"];
+    var k = 0; st.textContent = "Reeling in your plan. This takes about 20 seconds…";
+    var timer = setInterval(function () { if (k < steps.length) st.textContent = steps[k++]; }, 4000);
     st.className = "form-status";
     setBusy(planForm, true, "Building your plan…");
     post("/api/plan", formData(planForm)).then(function (res) {
+      clearInterval(timer);
       setBusy(planForm, false);
       if (res.ok && res.data.plan) {
         render(res.data.plan);
@@ -123,6 +151,7 @@
         st.className = "form-status err";
       }
     }).catch(function () {
+      clearInterval(timer);
       setBusy(planForm, false);
       st.textContent = "Couldn't connect. Please check your internet and try again.";
       st.className = "form-status err";
